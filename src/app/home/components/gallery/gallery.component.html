@@ -1,0 +1,11 @@
+<div class="text-right mainDiv">
+  <img [src]="selectedAdvertismentImageUrl" alt="phone" width="100%">
+  <span>
+    <button (click)="backImage()" type="button">
+      <mat-icon class="hover:text-black">arrow_back_ios</mat-icon>
+    </button>
+    <button type="button" (click)="nextImage()">
+      <mat-icon class="hover:text-black">arrow_forward_ios</mat-icon>
+    </button>
+  </span>
+</div>

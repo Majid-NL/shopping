@@ -1,0 +1,40 @@
+<div style="text-align: center;  width: 100%; height: 590px;">
+  <h1 class="bahar-shopping text-lime-900 duration-700 ease-in-out hover:text-orange-800 text-lg relative top-1.5">
+    Bahar Shopping
+  </h1>
+  <div
+    style="text-align: right; border: 1px solid lightgray;
+        background-color: rgba(238, 238, 238, 0.208); padding-top: 30px; border: 1px solid rgba(234, 234, 234, 0.532);">
+    <form [formGroup]="myForm!" (ngSubmit)="onSubmit(myForm)" style="text-align: center;" class="example-form">
+      <h4> Sign up new account</h4>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>First name</mat-label>
+        <input matInput placeholder="Write your first name" formControlName="firstName">
+      </mat-form-field><br>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Last name</mat-label>
+        <input matInput placeholder="Write your last name" formControlName="lastName">
+      </mat-form-field><br>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email address</mat-label>
+        <input matInput placeholder="Write your email" formControlName="email">
+      </mat-form-field><br>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Create password</mat-label>
+        <input matInput placeholder="create password" value="" formControlName="password">
+        <span *ngIf="myForm?.get('password')?.invalid && myForm?.get('password')?.touched"
+          style="color: red; font-size: x-small; padding-bottom: 15px;">At
+          least 5 characters</span>
+      </mat-form-field><br>
+
+      <!-- [routerLink]="'/authentication/login'" -->
+      <button (click)="onSubmit(myForm)" type="submit" mat-raised-button color="primary"> Register </button>
+      <div *ngIf="validToRegister" class="text-rose-500">Please fill the fields
+        correctly</div>
+      <div class="text-xs text-slate-500 mt-2">Already have an account?</div>
+      <button type="button" [routerLink]="'/authentication/login'"
+        class="rounded hover:text-white hover:cursor-pointer p-3 text-white mt-2 bg-gray-500 hover:bg-blue-700">
+        Login now</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="text-center border pt-8 text-center border-t border-inherit w-full h-1/2 mb-40" style="
+background-color: rgba(238, 238, 238, 0.208);">
+  <h1 class="bahar-shopping text-lime-900 duration-700 ease-in-out hover:text-orange-800 text-lg relative top-1.5">
+    Bahar Shopping
+  </h1>
+  <div class="">
+    <form [formGroup]="myForm!" (ngSubmit)="onSubmit(myForm)" style="text-align: center;" class="example-form">
+      <h4> Login into your account</h4>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>User Name (email)</mat-label>
+        <input matInput placeholder="Enter your email" name="usename" formControlName="userName">
+      </mat-form-field><br>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Password</mat-label>
+        <div class="flex">
+          <input class="flex-grow" matInput type="{{hidePassword}}" (mouseout)="input(myForm?.value)"
+            placeholder="Enter your password" value="" formControlName="password">
+          <button *ngIf="myForm?.get('password')?.value" class="text-right" type="button" (click)="showPassword()">
+            <mat-icon class="text-base">remove_red_eye</mat-icon>
+          </button>
+        </div>
+      </mat-form-field><br>
+      <button class="bg-blue-700 text-white hover:bg-blue-800" type="submit" mat-raised-button> Login </button>
+      <span *ngIf="loginSuccess"> <button type="button" mat-button class="text-green-900">Login success</button></span>
+      <button [routerLink]="'/authentication/userName-recovery'" *ngIf="!loginSuccess" class="forgatPassword"
+        type="button" mat-raised-button (click)="forgetpassword()">
+        Forgot password
+      </button> <br>
+      <div *ngIf="showFailed">
+        <span type="button" mat-button class="text-rose-700"> Login Failed !!</span>
+      </div>
+      <div style="margin-top: 30px">
+        <div class="text-xs">Don't have an account?!</div>
+        <button class="text-white mt-2 cursor-pointer bg-gray-500 hover:bg-blue-700"
+          [routerLink]="'/authentication/sign-up'" type="button" mat-button>
+          Register now </button>
+      </div>
+    </form>
+  </div>
+</div>
